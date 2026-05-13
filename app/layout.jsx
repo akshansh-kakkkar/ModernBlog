@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
   };
   return (
     <html lang="en">
-      <body className="min-h-full flex flex-col">
+      <body className=" flex flex-col">
         <nav className="md:block hidden">
           <div className="flex justify-between items-center bg-[#f1f4fb]  px-18 py-8">
             <div
@@ -112,7 +112,7 @@ export default function RootLayout({ children }) {
                     initial={{ x: -100 }}
                     animate={{ x: 0 }}
                     exit={{ x: -100 }}
-                    className="w-fit relative mx-6 flex justify-center flex-col items-center gap-6 p-12 rounded-xl my-2  bg-[#4c41e144]"
+                    className="w-fit relative mx-6 flex justify-center flex-col items-center gap-6 p-12 rounded-xl my-2  bg-[#c4c0ff]"
                   >
                     <div className="absolute top-[20px] right-[20px]" onClick={handleOpen}>
                       <X />
@@ -168,7 +168,23 @@ export default function RootLayout({ children }) {
             </div>
           </nav>
         </AnimatePresence>
-        {children}
+        <div className="h-full w-full">
+          {children}
+        </div>
+
+        <footer className="bg-[#4c41e141] rounded-t-2xl p-12">
+          <div className="flex justify-around flex-col md:flex-row items-center">
+            <div className={`${poppins.className} font-bold text-2xl col-span-1`}>
+              BlogModern
+            </div>
+            <div className="flex flex-col md:flex-row gap-3">
+              <Link className={`text-lg font-normal ${pathname === "/" ? `underline underline-offset-2 font-bold ${roboto.className}` : ""} ${roboto.className} `}  href={'/'}>Home</Link>
+              <Link  className={`text-lg font-normal ${pathname === "/about" ? `underline underline-offset-2 font-bold ${roboto.className}` : ""} ${roboto.className} `} href={'/about'}>About</Link>
+              <Link  className={`text-lg font-normal ${pathname === "/blog" ? `underline underline-offset-2 font-bold ${roboto.className}` : ""} ${roboto.className} `} href={'/blog'}>Blog</Link>
+              <Link  className={`text-lg font-normal ${pathname === "/contact" ? `underline underline-offset-2 font-bold ${roboto.className}` : ""} ${roboto.className} `} href={'/contact'}>Contact</Link>
+            </div>
+          </div>
+        </footer>
       </body>
     </html>
   );

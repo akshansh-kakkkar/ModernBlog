@@ -1,6 +1,8 @@
+"use client";
 import Image from "next/image";
 import { Roboto, Poppins, Inter } from "next/font/google";
-
+import Link from "next/link";
+import { motion } from "framer-motion";
 const roboto = Roboto({
   subsets: ["latin"],
 });
@@ -15,20 +17,53 @@ const inter = Inter({
 export default function herosection() {
   return (
     <>
-      <div className="bg-[#f1f4fb] mt-12 md:h-[87vh] w-full">
+      <div className="bg-[#f1f4fb] pb-12 pt-12 md:h-[87vh] h-full w-full">
         <div className="flex gap-12 justify-between md:flex-row flex-col-reverse mx-12 lg:mx-26 h-full items-center">
           <div>
             <div className="flex items-center text-center md:items-start md:text-start flex-col gap-6">
-              <div className={`bg-[#4c41e12e] text-md md:text-xl items-center flex w-fit px-8 py-2 rounded-full text-[#4c41e1df] ${inter.className} font-semibold  uppercase`}>Blogs at one Place</div>
-              <div className={`md:text-6xl text-3xl font-semibold items-center text-[#091426] uppercase ${poppins.className}`}>Welcome to <span className="text-[#4c41e1df]">BlogModern</span> </div>
-              <div className={`text-xl ${roboto.className} items-center font-medium text-[#091426]`}>
-                BlogModern is the cleanest way to share what you know with others.
+              <div
+                className={`bg-[#4c41e12e] text-md md:text-xl items-center flex w-fit px-4 py-2 rounded-full text-[#4c41e1df] ${roboto.className} font-normal`}
+              >
+                Blogs at one Place
+              </div>
+              <div
+                className={`md:text-6xl text-3xl font-semibold items-center text-[#091426] uppercase ${poppins.className}`}
+              >
+                Welcome to{" "}
+                <span className="text-[#4c41e1df]">BlogModern</span>{" "}
+              </div>
+              <div
+                className={`text-xl ${roboto.className} items-center font-medium text-[#091426]`}
+              >
+                BlogModern is the cleanest way to share what you know with
+                others.
+              </div>
+              <div className="flex md:flex-row flex-col  gap-12 md:gap-4 items-center text-balance">
+                <motion.div
+                  whileHover={{ scale: 0.95 }}
+                  whileTap={{ scale: 1.1 }}
+                >
+                  <Link
+                    href={"/blog"}
+                    className={`${poppins.className} shadow-sm shadow-[#4c41e1df] bg-[#4c41e1df] text-white  px-4 py-2 uppercase rounded-xl text-2xl font-medium`}
+                  >
+                    View Blogs
+                  </Link>
+                </motion.div>
+                <motion.div whileHover={{scale:0.95}} whileTap={{scale:1.1}}>
+                  <Link
+                    href={"/contact"}
+                    className={`${poppins.className} text-[#4c41e1df] border-2 border-[#4c41e1df]  px-4 py-2 uppercase rounded-xl text-2xl font-medium`}
+                  >
+                    Contact Us{" "}
+                  </Link>
+                </motion.div>
               </div>
             </div>
           </div>
           <div className="bg-[#E5EEFF] shadow-lg p-6 rounded-2xl">
             <Image
-            className="rounded-xl"
+              className="rounded-xl"
               src="/images/hero.webp"
               alt="hero image"
               width={650}
