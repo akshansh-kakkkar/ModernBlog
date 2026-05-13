@@ -4,7 +4,7 @@ import "./globals.css";
 import { Roboto, Poppins, Inter } from "next/font/google";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { Cross, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
 const roboto = Roboto({
   subsets: ["latin"],
@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="min-h-full flex flex-col">
         <nav className="md:block hidden">
-          <div className="flex justify-between items-center  px-18 py-8">
+          <div className="flex justify-between items-center bg-[#f1f4fb]  px-18 py-8">
             <div
               className={`text-2xl font-bold tracking-widest text-[#091426] ${roboto.className}`}
             >
@@ -81,8 +81,7 @@ export default function RootLayout({ children }) {
           </div>
           <div className="flex justify-center items-center">
             <div
-              className="bg-[#4B41E1] rounded-full opacity-30
-0 mx-22 w-full h-[0.2px] "
+              className="bg-[#4B41E1] rounded-full opacity-30 mx-22 w-full h-[0.2px] "
             ></div>
           </div>
         </nav>
