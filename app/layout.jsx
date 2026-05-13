@@ -3,7 +3,7 @@ import Link from "next/link";
 import "./globals.css";
 import { Roboto, Poppins, Inter } from "next/font/google";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Cross, Menu, X } from "lucide-react";
 import { useState } from "react";
 const roboto = Roboto({
@@ -69,6 +69,7 @@ export default function RootLayout({ children }) {
                 </li>
               </ul>
             </div>
+
             <motion.div whileTap={{ scale: 1.05 }} whileHover={{ scale: 0.95 }}>
               <Link
                 href={"/email"}
@@ -85,71 +86,89 @@ export default function RootLayout({ children }) {
             ></div>
           </div>
         </nav>
-        <nav className="md:hidden block">
-          <div className="flex justify-between items-center px-8 py-4 sm:px-12 sm:py-8">
-            <div
-              className={`text-xl sm:text-2xl opaci4 font-bold tracking-widest text-[#091426] ${roboto.className}`}
-            >
-              <Link href={"/"}>BlogModern</Link>
-            </div>
-            <div onClick={handleOpen} className="duration-300 transition-all">
-              {
-                open === true ? (<Menu/>):( <X />)
-              }            </div>
-          </div>
-          <div>
-            {open && (
-              <div className="flex justify-start ">
-                <div className="w-fit mx-6 flex justify-center flex-col items-center gap-6 p-12 rounded-xl my-2  bg-[#4c41e144]">
-                  <ul>
-                    <li>
-                      <Link
-                        className={`text-lg text-[#091426] ${poppins.className} ${pathname === "/" ? "underline font-medium" : ""}`}
-                        href={"/"}
-                      >
-                        Home
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        className={`text-lg text-[#091426] ${poppins.className} ${pathname === "/about" ? "underline font-medium" : ""}`}
-                        href={"/about"}
-                      >
-                        About
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        className={`text-lg text-[#091426] ${poppins.className} ${pathname === "/blog" ? "underline font-medium" : ""}`}
-                        href={"/blog"}
-                      >
-                        Blog
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        className={`text-lg text-[#091426] ${poppins.className} ${pathname === "/contact" ? "underline font-medium" : ""}`}
-                        href={"/contact"}
-                      >
-                        Contact
-                      </Link>
-                    </li>
-
-                  </ul>
-                                      <motion.div whileHover={{scale:1.1}} whileTap={{scale:0.95}}>
-                        <Link
-                          href={`/email`}
-                          className={`${inter.className} text:bg-[#4c41e1df] font-bold p-3 rounded-lg text-2xl-[#4B41E1] bg-white`}
-                        >
-                          Get Started
-                        </Link>
-                     
-                    </motion.div>
-                </div>
+        <AnimatePresence>
+          <nav className="md:hidden block">
+            <div className="flex justify-between items-center px-8 py-4 sm:px-12 sm:py-8">
+              <div
+                className={`text-xl sm:text-2xl opaci4 font-bold tracking-widest text-[#091426] ${roboto.className}`}
+              >
+                <Link href={"/"}>BlogModern</Link>
               </div>
-            )}
-          </div>
-        </nav>
+              <motion.div onClick={handleOpen} exit={{rotate:0}} animate={{rotate: open ? 360 : 0}}  initial={{rotate:0}} className="">
+                {open ? <X /> : <Menu />}{" "}
+              </motion.div>
+            </div>
+            <div className="flex justify-center items-center">
+              <div className=" bg-[#4B41E1] opacity-30 h-[0.2px] rounded-full w-full mx-12"></div>
+            </div>
+            <div>
+              {open && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  exit={{ opacity: 1 }}
+                  animate={{ opacity: 1 }}
+                  className="flex fixed z-40 i0  justify-start "
+                >
+                  <motion.div
+                    initial={{ x: -100 }}
+                    animate={{ x: 0 }}
+                    exit={{ x: -100 }}
+                    className="w-fit relative mx-6 flex justify-center flex-col items-center gap-6 p-12 rounded-xl my-2  bg-[#4c41e144]"
+                  >
+                    <div className="absolute top-[20px] right-[20px]" onClick={handleOpen}>
+                      <X />
+                    </div>
+                    <ul>
+                      <li>
+                        <Link
+                          className={`text-lg text-[#091426] ${poppins.className} ${pathname === "/" ? "underline font-medium" : ""}`}
+                          href={"/"}
+                        >
+                          Home
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          className={`text-lg text-[#091426] ${poppins.className} ${pathname === "/about" ? "underline font-medium" : ""}`}
+                          href={"/about"}
+                        >
+                          About
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          className={`text-lg text-[#091426] ${poppins.className} ${pathname === "/blog" ? "underline font-medium" : ""}`}
+                          href={"/blog"}
+                        >
+                          Blog
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          className={`text-lg text-[#091426] ${poppins.className} ${pathname === "/contact" ? "underline font-medium" : ""}`}
+                          href={"/contact"}
+                        >
+                          Contact
+                        </Link>
+                      </li>
+                    </ul>
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Link
+                        href={`/email`}
+                        className={`${inter.className} text-[#4c41e1df] font-bold p-3 rounded-lg text-2xl-[#4B41E1] bg-white`}
+                      >
+                        Get Started
+                      </Link>
+                    </motion.div>
+                  </motion.div>
+                </motion.div>
+              )}
+            </div>
+          </nav>
+        </AnimatePresence>
         {children}
       </body>
     </html>
