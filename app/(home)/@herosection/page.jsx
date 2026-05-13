@@ -17,7 +17,7 @@ const inter = Inter({
 export default function herosection() {
   return (
     <>
-      <div className="bg-[#f1f4fb] pb-12 pt-12 md:h-[87vh] h-full w-full">
+      <div className="bg-[#f1f4fb] pb-12 pt-12 md:h-[100vh] h-full w-full">
         <div className="flex gap-12 justify-between md:flex-row flex-col-reverse mx-12 lg:mx-26 h-full items-center">
           <div>
             <div className="flex items-center text-center md:items-start md:text-start flex-col gap-6">

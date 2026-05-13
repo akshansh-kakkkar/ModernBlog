@@ -168,7 +168,7 @@ export default function RootLayout({ children }) {
             </div>
           </nav>
         </AnimatePresence>
-        <div className="h-full w-full">
+        <div className="min-h-screen">
           {children}
         </div>
 
@@ -177,7 +177,7 @@ export default function RootLayout({ children }) {
             <div className={`${poppins.className} font-bold text-2xl col-span-1`}>
               BlogModern
             </div>
-            <div className="flex flex-col md:flex-row gap-3">
+            <div className="flex text-[#091426] flex-col md:flex-row gap-3">
               <Link className={`text-lg font-normal ${pathname === "/" ? `underline underline-offset-2 font-bold ${roboto.className}` : ""} ${roboto.className} `}  href={'/'}>Home</Link>
               <Link  className={`text-lg font-normal ${pathname === "/about" ? `underline underline-offset-2 font-bold ${roboto.className}` : ""} ${roboto.className} `} href={'/about'}>About</Link>
               <Link  className={`text-lg font-normal ${pathname === "/blog" ? `underline underline-offset-2 font-bold ${roboto.className}` : ""} ${roboto.className} `} href={'/blog'}>Blog</Link>
