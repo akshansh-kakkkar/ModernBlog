@@ -72,7 +72,7 @@ export default function RootLayout({ children }) {
 
             <motion.div whileTap={{ scale: 1.05 }} whileHover={{ scale: 0.95 }}>
               <Link
-                href={"/email"}
+                href={"/blog"}
                 className={`${inter.className} hover:bg-[#4c41e1df] font-bold p-3 rounded-lg bg-[#4B41E1] text-white`}
               >
                 Get Stared
@@ -156,7 +156,7 @@ export default function RootLayout({ children }) {
                       whileTap={{ scale: 0.95 }}
                     >
                       <Link
-                        href={`/email`}
+                        href={`/blog`}
                         className={`${inter.className} text-[#4c41e1df] font-bold p-3 rounded-lg text-2xl-[#4B41E1] bg-white`}
                       >
                         Get Started
