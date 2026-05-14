@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Roboto, Poppins, Inter } from "next/font/google";
 import { MoveRight } from "lucide-react";
 import {motion, scale} from "framer-motion"
+import Link from "next/link";
 const roboto = Roboto({
   subsets: ["latin"],
 });
@@ -30,7 +31,8 @@ export default function blogs() {
       </div>
       <div className="flex gap-22 mx-12 xl:ml-8 my-12 xl:justify-start justify-center items-center flex-wrap">
         {blog.map((blogs) => (
-          <motion.div key={blogs.id} className="bg-[#f1f4fb] hover:scale-[104%] transition-all duration-400 cursor-pointer group-hover:translate-y-2 group relative flex flex-col w-[350px] justify-center sm:w-[390px] h-[500px] p-2 sm:p-12 shadow ">
+          <Link  key={blogs.id} href={`/blog/${blogs.slug}`}>
+          <motion.div className="bg-[#f1f4fb] hover:scale-[104%] transition-all duration-400 cursor-pointer group-hover:translate-y-2 group relative flex flex-col w-[350px] justify-center sm:w-[390px] h-[500px] p-2 sm:p-12 shadow ">
             <div className="relative w-[300px]   object-cover h-[220px]">
               <Image
                 fill
@@ -51,6 +53,7 @@ export default function blogs() {
             </div>
             <div className="mt-auto text-right flex justify-end gap-4 transition-all duration-500 md:group-hover:opacity-100 md:opacity-0 cursor-pointer text-[#4c41e1df] pt-6"><span>Click here to read more</span><span><MoveRight color={"#4c41e1df"}/></span></div>
           </motion.div>
+          </Link>
         ))}
       </div>
     </div>
