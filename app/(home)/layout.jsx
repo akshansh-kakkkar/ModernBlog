@@ -1,7 +1,7 @@
 export default function layout({herosection}){
   return(
     <>
-    <div>
+    <div className="bg-[#f1f4fb]">
       {herosection}
     </div>
     </>

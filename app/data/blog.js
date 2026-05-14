@@ -4,6 +4,7 @@ import { title } from "framer-motion/client";
 export const blog = [
     {
         id : 1,
+        slug : "react",
         title : " Getting started with react in 2026",
         time : "5 min read",
         description : "This blog includes starter guide about react click to read more about it.",
@@ -11,7 +12,8 @@ export const blog = [
         image : "/images/react.png"
     },
     {
-        id : 2, 
+        id : 2,
+        slug : "nexjs",
         title : "Why developers love NEXT JS",
         time : "5 min read",
         description : "This blog includes starter guide about NEXT JS click to read more about it.",
@@ -20,6 +22,7 @@ export const blog = [
     },
     {
         id : 3,
+        slug : "figma",
         title : "Top 10 UI design trends",
         time : "4 min read",
         description : "This blog includes starter guide about Figma click to read more about it.",
@@ -29,6 +32,7 @@ export const blog = [
     {
         id : 4,
         title : "Mastering Javascript",
+        slug : "javascript",
         time : "7 min read",
         description : "This blog includes starter guide about Javascript click to read more about it.",
         author : "Michael",
@@ -36,6 +40,7 @@ export const blog = [
     },
     {
         id : 5,
+        slug : "ai",
         title : "Use of AI in Web development",
         time : "8 min read",
         description : "This blog includes started guide about how to use AI in web development click to read more about it.",
